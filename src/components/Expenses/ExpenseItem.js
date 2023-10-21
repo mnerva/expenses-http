@@ -1,39 +1,27 @@
+import React, { useState } from 'react';
+
 import './ExpenseItem.css'
 import ExpenseDate from "./ExpenseDate";
+import Card from "../UI/Card";
 
 const ExpenseItem = (props) => {
-	const day = props.expenseData.date.toLocaleString('en-US', {day: '2-digit'})
-	const month = props.expenseData.date.toLocaleString('en-US', {month: 'long'})
-	const year = props.expenseData.date.getFullYear()
+	const [title, setTitle] = useState(props.expenseData.title)
+
+	const clickHandler = () => {
+		setTitle(value: 'Updated!')
+		console.log(title)
+	}
 
   	return (
-  		<div className='expense-item'>
-  			<div>
-  				<div>{month}<\div>
-  				<div>{day}<\div>
-  				<diiv>{year}<\div>
-  			<\div>
-		    <div className="expense-item">
-		    	<ExpenseDate date={props.expenseData.date}></ExpenseDate>
-		      <div className="expense-item__description">
-		        <h2>{props.expenseData.title}</h2>
-		        <div className="expense-item__price">{props.expenseData.price}</div>
-		      </div>
+		<Card className="expense-item">
+		    <ExpenseDate date={props.expenseData.date}></ExpenseDate>
+		    <div className="expense-item__description">
+		       <h2>{props.expenseData.title}</h2>
+		       <div className="expense-item__price">{props.expenseData.price}</div>
+		    </div>
+		    <button onClick={clickHandler}>Change Title</button>
 	    </div>
-	  )
-
-}
-
-const ExpenseItem = (props) => {
-  	return (
-  		<div className='expense-item'>
-  			<ExpenseDate date={props.expenseData.date}><\ExpenseDate>
-		      <div className="expense-item__description">
-		        <h2>{props.expenseData.title}</h2>
-		        <div className="expense-item__price">{props.expenseData.price}</div>
-		      </div>
-	    </div>
-	  )
+	)
 
 }
 
