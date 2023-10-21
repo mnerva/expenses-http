@@ -8,7 +8,7 @@ const ExpenseItem = (props) => {
 	const [title, setTitle] = useState(props.expenseData.title)
 
 	const clickHandler = () => {
-		setTitle(value: 'Updated!')
+		setTitle('Updated!')
 		console.log(title)
 	}
 
@@ -20,7 +20,7 @@ const ExpenseItem = (props) => {
 		       <div className="expense-item__price">{props.expenseData.price}</div>
 		    </div>
 		    <button onClick={clickHandler}>Change Title</button>
-	    </div>
+	    </Card>
 	)
 
 }
