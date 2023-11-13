@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, Fragment } from 'react'
 import "./ExpenseForm.css"
 
 import Error from "../UI/Error";
@@ -107,6 +107,7 @@ const ExpenseForm = (props) => {
                     <button onClick={() => props.setFormEdit(false)}>Cancel</button>
                 </div>
             </form>
+        </div>
     </Fragment>
   )
 }
